@@ -6,16 +6,43 @@ import { Context } from "../store/appContext";
 export const Single = props => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
+	const [item, setItem] = useState({});
+
+	useEffect(() => {
+		if (params.type === "people") {
+			actions.getPerson(params.id)
+				.then(data => setItem(data));
+		} else if (params.type === "planets") {
+			actions.getPlanet(params.id)
+				.then(data => setItem(data));
+		} else if (params.type === "starships") {
+			actions.getShip(params.id)
+				.then(data => setItem(data));
+		}
+	}, [params]);
+
 	return (
-		<div className="jumbotron">
-			<h1 className="display-4">This will show the demo element: {store.demo[params.theid].title}</h1>
+		<div className="container">			
+		<h4 className="text-center mt-5">Información detallada</h4>
 
-			<hr className="my-4" />
-
+			<div className="card mb-3" style={{ maxWidth: "540px" }}>
+				<div className="row g-0">
+					<div className="col-md-4">
+						<img src="..." className="img-fluid rounded-start" alt="..." />
+					</div>
+					<div className="col-md-8">
+						<div className="card-body">
+							<h5 className="card-title">{item.name}</h5>
+							<p className="card-text"></p>
+							<p className="card-text">
+								<small className="text-muted">Texto de prueba</small>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
 			<Link to="/">
-				<span className="btn btn-primary btn-lg" href="#" role="button">
-					Back home
-				</span>
+				<button className="btn btn-primary">Back home</button>
 			</Link>
 		</div>
 	);
