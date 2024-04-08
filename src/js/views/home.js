@@ -20,9 +20,11 @@ export const Home = () => {
             </h1>
             <div className="container">
                 <div className="row flex-row flex-nowrap overflow-auto">
-                    {store.people.map((item, index) => (
+                    {console.log('People', store.people)}
+                    {
+                    store.people.map((item, index) => (
                         <div key={index} className="col-md-4" style={{ marginBottom: "20px" }}>
-                            <People title={item.name} id={item.id}/>
+                            <People name={item.name} id={item.id}/>
                         </div>
                     ))}
                 </div>
@@ -30,7 +32,8 @@ export const Home = () => {
                     Planets
                 </h1>
                 <div className="row flex-row flex-nowrap overflow-auto">
-                    {store.planets.map((item, index) => (
+                    {
+                    store.planets.map((item, index) => (
                         <div key={index} className="col-md-4" style={{ marginBottom: "20px" }}>
                             <Planets title={item.name} id={item.id}/>
                         </div>
@@ -40,7 +43,8 @@ export const Home = () => {
                     Starships
                 </h1>
                 <div className="row flex-row flex-nowrap overflow-auto">
-                    {store.starships.map((item, index) => (
+                    {
+                    store.starships.map((item, index) => (
                         <div key={index} className="col-md-4" style={{ marginBottom: "20px" }}>
                             <Starships title={item.name} id={item.id}/>
                         </div>

@@ -13,7 +13,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             getPeople: () => {
                 fetch("https://www.swapi.tech/api/people/")
                     .then(response => response.json())
-                    .then(data => setStore({ people: data.result }))
+                    .then(data => setStore({ people: data.results }))
                     .catch(error => console.log('Error', error));
             },
             getPerson: (uid) => {
@@ -25,7 +25,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             getStarships: () => {
                 fetch("https://www.swapi.tech/api/starships/")
                     .then(response => response.json())
-                    .then(data => setStore({ starships: data.result }))
+                    .then(data => setStore({ starships: data.results }))
                     .catch(error => console.log('Error', error));
             },
             getShip: (uid) => {
@@ -37,7 +37,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             getPlanets: () => {
                 fetch("https://www.swapi.tech/api/planets/")
                     .then(response => response.json())
-                    .then(data => setStore({ planets: data.result }))
+                    .then(data => setStore({ planets: data.results }))
                     .catch(error => console.log('Error', error));
             },
             getPlanet: (uid) => {
