@@ -22,7 +22,7 @@ export const Home = () => {
                 <div className="row flex-row flex-nowrap overflow-auto">
                     {store.people.map((item, index) => (
                         <div key={index} className="col-md-4" style={{ marginBottom: "20px" }}>
-                            <People title={item.name} id={item.uid}/>
+                            <People title={item.name} id={item.id}/>
                         </div>
                     ))}
                 </div>
@@ -32,7 +32,7 @@ export const Home = () => {
                 <div className="row flex-row flex-nowrap overflow-auto">
                     {store.planets.map((item, index) => (
                         <div key={index} className="col-md-4" style={{ marginBottom: "20px" }}>
-                            <Planets title={item.name} id={item.uid}/>
+                            <Planets title={item.name} id={item.id}/>
                         </div>
                     ))}
                 </div>
@@ -42,7 +42,7 @@ export const Home = () => {
                 <div className="row flex-row flex-nowrap overflow-auto">
                     {store.starships.map((item, index) => (
                         <div key={index} className="col-md-4" style={{ marginBottom: "20px" }}>
-                            <Starships title={item.name} id={item.uid}/>
+                            <Starships title={item.name} id={item.id}/>
                         </div>
                     ))}
                 </div>

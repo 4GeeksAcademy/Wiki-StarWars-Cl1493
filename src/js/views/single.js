@@ -10,13 +10,13 @@ export const Single = props => {
 
 	useEffect(() => {
 		if (params.type === "people") {
-			actions.getPerson(params.id)
+			actions.getPerson(params.uid)
 				.then(data => setItem(data));
 		} else if (params.type === "planets") {
-			actions.getPlanet(params.id)
+			actions.getPlanet(params.uid)
 				.then(data => setItem(data));
 		} else if (params.type === "starships") {
-			actions.getShip(params.id)
+			actions.getShip(params.uid)
 				.then(data => setItem(data));
 		}
 	}, [params]);
@@ -35,7 +35,7 @@ export const Single = props => {
 							<h5 className="card-title">{item.name}</h5>
 							<p className="card-text"></p>
 							<p className="card-text">
-								<small className="text-muted">Texto de prueba</small>
+								<small className="text-muted">Texto de prueba, para ver como queda...</small>
 							</p>
 						</div>
 					</div>

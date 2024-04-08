@@ -19,7 +19,9 @@ const People = (props) => {
             <img src="..." className="card-img-top" alt="..." />
             <div className="card-body">
                 <h5 className="card-title">{props.name}</h5>
-                <Link to={`/people/${props.id}`} className="btn btn-primary">View Details</Link>
+                <Link to={`/people/${props.id}`} 
+                className="btn btn-primary">View Details
+                </Link>
                 <button type="button" className={isFavorite ? "btn btn-danger" : "btn btn-outline-warning"} onClick={favorite}>❤</button>
             </div>
         </div>

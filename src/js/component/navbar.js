@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 export const Navbar = () => {
+    const { store, actions } = useContext(Context);
     const [favorites, setFavorites] = useState([]);
 
     const addToFavorites = (item) => {
@@ -22,12 +24,13 @@ export const Navbar = () => {
             <div className="ml-auto">
                 <div className="btn-group" role="group">
                     <button type="button" className="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        Favorites
+                        Favorites {store.favorites.length > 0 ? store.favorites.length : "0"}
                     </button>
                     <ul className="dropdown-menu dropdown-menu-end p-3">
-                        {favorites.map((favorite, index) => (
+                        {store.favorites.length > 0 && store.favorites.map((item, index) => (
                             <li key={index}>
-                                <button className="dropdown-item" onClick={() => removeFromFavorites(index)}>{favorite.title}</button>
+                                {item}
+                                <button className="dropdown-item" onClick={() => removeFromFavorites(index)}>Remove</button>
                             </li>
                         ))}
                     </ul>
