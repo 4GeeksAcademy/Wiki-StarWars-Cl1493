@@ -4,17 +4,7 @@ import { Context } from "../store/appContext";
 
 export const Navbar = () => {
     const { store, actions } = useContext(Context);
-    const [favorites, setFavorites] = useState([]);
 
-    const addToFavorites = (item) => {
-        setFavorites([...favorites, item]);
-    };
-
-    const removeFromFavorites = (index) => {
-        const newFavorites = [...favorites];
-        newFavorites.splice(index, 1);
-        setFavorites(newFavorites);
-    };
 
     return (
         <nav className="navbar navbar-light bg-white mb-5 p-4">
@@ -30,7 +20,7 @@ export const Navbar = () => {
                         {store.favorites.length > 0 && store.favorites.map((item, index) => (
                             <li key={index}>
                                 {item}
-                                <button className="dropdown-item" onClick={() => removeFromFavorites(index)}>Remove</button>
+                                <button className="dropdown-item" onClick={() => actions.removeFavorite(item)}>Remove</button>
                             </li>
                         ))}
                     </ul>

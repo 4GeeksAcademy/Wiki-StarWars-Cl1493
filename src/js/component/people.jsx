@@ -7,12 +7,9 @@ const People = (props) => {
     const { store, actions } = useContext(Context);
     const [isFavorite, setIsFavorite] = useState(false);
 
-    useEffect(() => {
-        setIsFavorite(store.favorites.some(item => item.id === props.id));
-    }, [store.favorites, props.id]);
 
     const favorite = () => {
-        actions.favorite(props);
+        actions.favoriteCheck(props.name);
     };
     return (
         <div className="card" style={{ width: "18rem" }}>

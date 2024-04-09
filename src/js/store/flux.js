@@ -46,19 +46,22 @@ const getState = ({ getStore, getActions, setStore }) => {
                     .then(data => setStore({ planet: data.result.properties }))
                     .catch(error => console.log('Error', error));
             },
-            favorite: item => {
-                const store = getStore();
-                const index = store.favorites.findIndex(favorite => favorite.id === item.id);
-                if (index === -1) {
-                    setStore({ favorites: [...store.favorites, item] });
-                } else {
-                    const newFavorites = [...store.favorites];
-                    newFavorites.splice(index, 1);
-                    setStore({ favorites: newFavorites });
+            favoriteCheck: (name) => {
+                const favorites = getStore().favorites;
+                if (favorites.indexOf(name) !== -1) {
+                  getActions().removeFavorite(name);
                 }
-            }
-        },
-    };
+                getActions().addFavorite(name);
+              },
+              addFavorite: (name) => {
+                setStore({ favorites: getStore().favorites.concat(name) });
+              },
+              removeFavorite: (name) => {
+                setStore({
+                  favorites: getStore().favorites.filter((element) => element !== name),
+                });
+              },
+    }}
 };
 
 export default getState;
