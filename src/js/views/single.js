@@ -8,19 +8,6 @@ export const Single = props => {
 	const params = useParams();
 	const [item, setItem] = useState({});
 
-	useEffect(() => {
-		if (params.type === "people") {
-			actions.getPerson(params.uid)
-				.then(data => setItem(data));
-		} else if (params.type === "planets") {
-			actions.getPlanet(params.uid)
-				.then(data => setItem(data));
-		} else if (params.type === "starships") {
-			actions.getShip(params.uid)
-				.then(data => setItem(data));
-		}
-	}, [params]);
-
 	return (
 		<div className="container">			
 		<h4 className="text-center mt-5">Información detallada</h4>

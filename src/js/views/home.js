@@ -24,7 +24,7 @@ export const Home = () => {
                     {
                     store.people.map((item, index) => (
                         <div key={index} className="col-md-4" style={{ marginBottom: "20px" }}>
-                            <People name={item.name} id={item.id}/>
+                            <People name={item.name} id={item.uid}/>
                         </div>
                     ))}
                 </div>
@@ -35,7 +35,7 @@ export const Home = () => {
                     {
                     store.planets.map((item, index) => (
                         <div key={index} className="col-md-4" style={{ marginBottom: "20px" }}>
-                            <Planets title={item.name} id={item.id}/>
+                            <Planets title={item.name} id={item.uid}/>
                         </div>
                     ))}
                 </div>
@@ -46,7 +46,7 @@ export const Home = () => {
                     {
                     store.starships.map((item, index) => (
                         <div key={index} className="col-md-4" style={{ marginBottom: "20px" }}>
-                            <Starships title={item.name} id={item.id}/>
+                            <Starships title={item.name} id={item.uid}/>
                         </div>
                     ))}
                 </div>
